@@ -1,28 +1,37 @@
-# SOMA Cache
+# SOMA Database
 
 ## Installation
 
 ```sh
-composer require nsrosenqvist/soma-cache
+composer require nsrosenqvist/soma-database
 ```
 
 ## Usage
 
+First register the service provider.
+
 **Example configuration:**
 ```php
 <?php return [
-    'default' => 'files',
-
-    'stores' => [
-        'files' => [
-            'driver' => 'filesystem',
-            'directory' => get_path('cache').'/files',
+    'default' => 'sqlite',
+    'connections' => [
+        'sqlite' => [
+            'driver' => 'sqlite',
+            'database' => get_path('storage').'/database.sqlite',
+            'prefix' => '',
+            'foreign_key_constraints' => true,
+        ],
+        'auth' => [
+            'driver' => 'sqlite',
+            'database' => get_path('storage').'/auth.sqlite',
+            'prefix' => '',
+            'foreign_key_constraints' => true,
         ],
     ],
 ];
 ```
 
-To see how to configure all supported [cache adapters](https://symfony.com/doc/4.4/components/cache.html#available-cache-adapters) review [how the configuration is processed](https://github.com/nsrosenqvist/soma-cache/blob/master/src/CacheProvider.php) in `CacheProvider::resolveAdapter`.
+To see how to configure all supported database connections refer to the [Illuminate documentation](https://laravel.com/docs/7.0/database).
 
 ## License
 

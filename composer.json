@@ -1,19 +1,16 @@
 {
-    "name": "nsrosenqvist/soma-cache",
+    "name": "nsrosenqvist/soma-database",
     "type": "library",
     "license": "MIT",
-    "description": "The Symfony Cache module for the Soma framework",
-    "homepage": "https://github.com/nsrosenqvist/soma-cache",
+    "description": "The Illuminate Database module for the SOMA framework",
+    "homepage": "https://github.com/nsrosenqvist/soma-database",
     "autoload": {
         "psr-4": {
-            "NSRosenqvist\\Soma\\Cache\\": "src/"
-        },
-        "files": [
-            "src/helpers.php"
-        ]
+            "NSRosenqvist\\Soma\\Database\\": "src/"
+        }
     },
     "require": {
         "php": ">=7.0.0",
-        "symfony/cache": "^4.4"
+        "illuminate/database": "^7.0"
     }
 }
